@@ -19,15 +19,75 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
     super.dispose();
   }
 
+  bool _isProcessing = false;
+
   void _onDetect(BarcodeCapture capture) {
+    if (_isProcessing) return;
+
     final List<Barcode> barcodes = capture.barcodes;
     if (barcodes.isNotEmpty) {
       final String? code = barcodes.first.rawValue;
       if (code != null) {
+        _isProcessing = true;
         controller.stop();
-        Navigator.pop(context, code);
+        _showConfirmationDialog(code);
       }
     }
+  }
+
+  void _showConfirmationDialog(String code) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        title: const Row(
+          children: [
+            Icon(Icons.check_circle, color: Colors.green),
+            SizedBox(width: 8),
+            Text('Scan Successful'),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Scanned code:', style: TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: SelectableText(
+                code,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontFamily: 'monospace',
+                ),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+              _isProcessing = false;
+              controller.start();
+            },
+            child: const Text('Scan Again'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.pop(context, code);
+            },
+            child: const Text('Confirm'),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
