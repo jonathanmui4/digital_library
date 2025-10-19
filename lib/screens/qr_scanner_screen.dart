@@ -53,7 +53,8 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(localizations.scannedCode, style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text(localizations.scannedCode,
+                style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.all(12),
@@ -107,7 +108,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
             onDetect: _onDetect,
           ),
           CustomPaint(
-            painter: ScannerOverlayPainter(
+            painter: const ScannerOverlayPainter(
               borderColor: AppColors.primary,
               borderRadius: 10,
               borderLength: 30,
