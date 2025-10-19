@@ -36,22 +36,24 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
   }
 
   void _showConfirmationDialog(String code) {
+    final localizations = AppLocalizations.of(context);
+
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: const Row(
+        title: Row(
           children: [
-            Icon(Icons.check_circle, color: Colors.green),
-            SizedBox(width: 8),
-            Text('Scan Successful'),
+            const Icon(Icons.check_circle, color: Colors.green),
+            const SizedBox(width: 8),
+            Text(localizations.scanSuccessful),
           ],
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Scanned code:', style: TextStyle(fontWeight: FontWeight.bold)),
+            Text(localizations.scannedCode, style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.all(12),
@@ -76,14 +78,14 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
               _isProcessing = false;
               controller.start();
             },
-            child: const Text('Scan Again'),
+            child: Text(localizations.scanAgain),
           ),
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
               Navigator.pop(context, code);
             },
-            child: const Text('Confirm'),
+            child: Text(localizations.confirm),
           ),
         ],
       ),

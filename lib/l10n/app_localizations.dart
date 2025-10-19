@@ -33,6 +33,10 @@ class AppLocalizations {
   String get scanBook => translate('scan_book');
   String get bookId => translate('book_id');
   String get loggedConsole => translate('logged_console');
+  String get scanSuccessful => translate('scan_successful');
+  String get scannedCode => translate('scanned_code');
+  String get scanAgain => translate('scan_again');
+  String get confirm => translate('confirm');
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

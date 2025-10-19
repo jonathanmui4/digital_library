@@ -22,6 +22,10 @@ class AppStrings {
     'language': 'Language',
     'book_id': 'Book ID',
     'logged_console': 'Data logged to console',
+    'scan_successful': 'Scan Successful',
+    'scanned_code': 'Scanned code:',
+    'scan_again': 'Scan Again',
+    'confirm': 'Confirm',
   };
 
   // Bahasa Indonesia
@@ -47,6 +51,10 @@ class AppStrings {
     'language': 'Bahasa',
     'book_id': 'ID Buku',
     'logged_console': 'Data tercatat di konsol',
+    'scan_successful': 'Pemindaian Berhasil',
+    'scanned_code': 'Kode yang dipindai:',
+    'scan_again': 'Pindai Lagi',
+    'confirm': 'Konfirmasi',
   };
 
   // Prevent instantiation
