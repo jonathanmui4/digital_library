@@ -27,6 +27,9 @@ class _BorrowScreenState extends State<BorrowScreen> {
   }
 
   Future<void> _scanQRCode() async {
+    // Clear previous scan before opening scanner
+    context.read<TransactionProvider>().clearScannedBookId();
+
     final result = await Navigator.push<String>(
       context,
       MaterialPageRoute(builder: (context) => const QRScannerScreen()),

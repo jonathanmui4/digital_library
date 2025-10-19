@@ -11,6 +11,9 @@ class ReturnScreen extends StatelessWidget {
   const ReturnScreen({Key? key}) : super(key: key);
 
   Future<void> _scanQRCode(BuildContext context) async {
+    // Clear previous scan before opening scanner
+    context.read<TransactionProvider>().clearScannedBookId();
+
     final result = await Navigator.push<String>(
       context,
       MaterialPageRoute(builder: (context) => const QRScannerScreen()),
