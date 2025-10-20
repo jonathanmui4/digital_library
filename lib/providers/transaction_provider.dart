@@ -52,7 +52,7 @@ class TransactionProvider with ChangeNotifier {
       print('==========================');
 
       // Commented out: Send to server
-      // await _apiService.sendTransaction(transaction.toJson());
+      await _apiService.sendTransaction(transaction.toJson());
 
       _isLoading = false;
       _scannedBookId = null;
@@ -84,7 +84,7 @@ class TransactionProvider with ChangeNotifier {
       print('==========================');
 
       // Commented out: Send to server
-      // await _apiService.sendTransaction(transaction.toJson());
+      await _apiService.sendTransaction(transaction.toJson());
 
       _isLoading = false;
       _scannedBookId = null;

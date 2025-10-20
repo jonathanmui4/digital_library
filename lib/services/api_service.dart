@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http;
 
 class ApiService {
-  static const String _defaultServerUrl = 'http://192.168.1.100:5000';
+  static const String _defaultServerUrl = 'http://10.0.2.2:80';
 
   Future<String> _getServerUrl() async {
     final prefs = await SharedPreferences.getInstance();
@@ -15,7 +15,7 @@ class ApiService {
     await prefs.setString('server_url', url);
   }
 
-  /* Commented out: WiFi communication code
+  // Commented out: WiFi communication code
   Future<void> sendTransaction(Map<String, dynamic> data) async {
     try {
       final serverUrl = await _getServerUrl();
@@ -51,5 +51,4 @@ class ApiService {
       rethrow;
     }
   }
-  */
 }
