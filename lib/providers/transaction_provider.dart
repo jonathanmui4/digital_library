@@ -125,7 +125,7 @@ class TransactionProvider with ChangeNotifier {
       print('============================');
 
       // Commented out: Send to server
-      // await _apiService.sendBook(book.toJson());
+      await _apiService.sendBook(book.toJson());
 
       _isLoading = false;
       _scannedBookId = null;

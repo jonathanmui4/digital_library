@@ -76,9 +76,6 @@ class _BorrowScreenState extends State<BorrowScreen> {
         _gradeController.clear();
       } else {
         // Check if it's a connection error
-        print('DEBUG: Error occurred: ${provider.error}');
-        print('DEBUG: Is connection error: ${ErrorUtils.isConnectionError(provider.error)}');
-
         if (provider.error != null && ErrorUtils.isConnectionError(provider.error)) {
           ErrorUtils.showConnectionError(
             context,
