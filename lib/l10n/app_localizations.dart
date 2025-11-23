@@ -43,6 +43,10 @@ class AppLocalizations {
   String get save => translate('save');
   String get settingsSaved => translate('settings_saved');
   String get invalidIp => translate('invalid_ip');
+  String get connectionError => translate('connection_error');
+  String get connectionErrorMessage => translate('connection_error_message');
+  String get goToSettings => translate('go_to_settings');
+  String get tryAgain => translate('try_again');
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

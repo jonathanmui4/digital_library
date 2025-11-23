@@ -6,6 +6,7 @@ import '../widgets/custom_text_field.dart';
 import '../widgets/book_id_display.dart';
 import '../widgets/submit_button.dart';
 import '../widgets/scan_button.dart';
+import '../utils/error_utils.dart';
 import 'qr_scanner_screen.dart';
 
 class AddBookScreen extends StatefulWidget {
@@ -83,12 +84,20 @@ class _AddBookScreenState extends State<AddBookScreen> {
         _isbnController.clear();
         _categoryController.clear();
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('${localizations.error}: ${provider.error}'),
-            backgroundColor: Colors.red,
-          ),
-        );
+        // Check if it's a connection error
+        if (ErrorUtils.isConnectionError(provider.error)) {
+          ErrorUtils.showConnectionError(
+            context,
+            onRetry: _submitAddBook,
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('${localizations.error}: ${provider.error}'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
       }
     }
   }

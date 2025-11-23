@@ -32,6 +32,10 @@ class AppStrings {
     'save': 'Save',
     'settings_saved': 'Settings saved successfully',
     'invalid_ip': 'Invalid IP address format',
+    'connection_error': 'Connection Error',
+    'connection_error_message': 'Unable to connect to the server. Please check your internet connection and ensure the server IP address is configured correctly.',
+    'go_to_settings': 'Go to Settings',
+    'try_again': 'Try Again',
   };
 
   // Bahasa Indonesia
@@ -67,6 +71,10 @@ class AppStrings {
     'save': 'Simpan',
     'settings_saved': 'Pengaturan berhasil disimpan',
     'invalid_ip': 'Format alamat IP tidak valid',
+    'connection_error': 'Kesalahan Koneksi',
+    'connection_error_message': 'Tidak dapat terhubung ke server. Silakan periksa koneksi internet Anda dan pastikan alamat IP server dikonfigurasi dengan benar.',
+    'go_to_settings': 'Ke Pengaturan',
+    'try_again': 'Coba Lagi',
   };
 
   // Prevent instantiation

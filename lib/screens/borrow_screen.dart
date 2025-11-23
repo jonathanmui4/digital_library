@@ -6,6 +6,7 @@ import '../widgets/custom_text_field.dart';
 import '../widgets/book_id_display.dart';
 import '../widgets/submit_button.dart';
 import '../widgets/scan_button.dart';
+import '../utils/error_utils.dart';
 import 'qr_scanner_screen.dart';
 
 class BorrowScreen extends StatefulWidget {
@@ -74,12 +75,23 @@ class _BorrowScreenState extends State<BorrowScreen> {
         _nameController.clear();
         _gradeController.clear();
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('${localizations.error}: ${provider.error}'),
-            backgroundColor: Colors.red,
-          ),
-        );
+        // Check if it's a connection error
+        print('DEBUG: Error occurred: ${provider.error}');
+        print('DEBUG: Is connection error: ${ErrorUtils.isConnectionError(provider.error)}');
+
+        if (provider.error != null && ErrorUtils.isConnectionError(provider.error)) {
+          ErrorUtils.showConnectionError(
+            context,
+            onRetry: _submitBorrow,
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('${localizations.error}: ${provider.error}'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
       }
     }
   }
