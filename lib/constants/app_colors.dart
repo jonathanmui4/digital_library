@@ -6,6 +6,8 @@ class AppColors {
   static const Color accent = Color(0xFFCB9668);
   static const Color light = Color(0xFFFAEACC);
   static const Color dark = Color(0xFF382B1D);
+  static const Color success = Color(0xFF4CAF50);
+  static const Color error = Color(0xFFF44336);
 
   // Prevent instantiation
   AppColors._();

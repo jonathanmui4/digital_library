@@ -3,11 +3,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  static const String _defaultServerUrl = 'http://10.0.2.2:80';
+  static const String _defaultServerUrl = 'http://10.0.2.2:5050';
 
   Future<String> _getServerUrl() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('server_url') ?? _defaultServerUrl;
+  }
+
+  Future<String> getServerUrl() async {
+    return _getServerUrl();
   }
 
   Future<void> setServerUrl(String url) async {

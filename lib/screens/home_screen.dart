@@ -6,6 +6,7 @@ import '../providers/language_provider.dart';
 import 'borrow_screen.dart';
 import 'return_screen.dart';
 import 'add_book_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -38,6 +39,18 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(localizations.appTitle),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SettingsScreen(),
+                ),
+              );
+            },
+            tooltip: localizations.settings,
+          ),
           PopupMenuButton<String>(
             icon: const Icon(Icons.language),
             onSelected: (languageCode) {

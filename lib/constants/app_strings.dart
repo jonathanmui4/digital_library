@@ -26,6 +26,12 @@ class AppStrings {
     'scanned_code': 'Scanned code:',
     'scan_again': 'Scan Again',
     'confirm': 'Confirm',
+    'settings': 'Settings',
+    'server_settings': 'Server Settings',
+    'server_ip_address': 'Server IP Address',
+    'save': 'Save',
+    'settings_saved': 'Settings saved successfully',
+    'invalid_ip': 'Invalid IP address format',
   };
 
   // Bahasa Indonesia
@@ -55,6 +61,12 @@ class AppStrings {
     'scanned_code': 'Kode yang dipindai:',
     'scan_again': 'Pindai Lagi',
     'confirm': 'Konfirmasi',
+    'settings': 'Pengaturan',
+    'server_settings': 'Pengaturan Server',
+    'server_ip_address': 'Alamat IP Server',
+    'save': 'Simpan',
+    'settings_saved': 'Pengaturan berhasil disimpan',
+    'invalid_ip': 'Format alamat IP tidak valid',
   };
 
   // Prevent instantiation

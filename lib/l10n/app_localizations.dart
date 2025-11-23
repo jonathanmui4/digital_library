@@ -37,6 +37,12 @@ class AppLocalizations {
   String get scannedCode => translate('scanned_code');
   String get scanAgain => translate('scan_again');
   String get confirm => translate('confirm');
+  String get settings => translate('settings');
+  String get serverSettings => translate('server_settings');
+  String get serverIpAddress => translate('server_ip_address');
+  String get save => translate('save');
+  String get settingsSaved => translate('settings_saved');
+  String get invalidIp => translate('invalid_ip');
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
