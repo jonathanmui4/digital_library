@@ -85,7 +85,7 @@ class _AddBookScreenState extends State<AddBookScreen> {
         _categoryController.clear();
       } else {
         // Check if it's a connection error
-        if (ErrorUtils.isConnectionError(provider.error)) {
+        if (provider.error != null && ErrorUtils.isConnectionError(provider.error)) {
           ErrorUtils.showConnectionError(
             context,
             onRetry: _submitAddBook,
